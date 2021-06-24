@@ -1,4 +1,4 @@
-import { LpTokenInfo, NativeTokenInfo, SplTokenInfo } from './types';
+import { LpTokenInfo, NativeTokenInfo, SplTokenInfo, SplTokens } from './types';
 
 export const SOL: NativeTokenInfo = {
   symbol: 'SOL',
@@ -14,7 +14,7 @@ export const WSOL: SplTokenInfo = {
   referrer: 'HTcarLHe7WRxBQCWvhVB8AP56pnEtJUV2jDGvcpY3xo5'
 };
 
-export const SPL_TOKENS = {
+export const SPL_TOKENS: SplTokens = {
   *[Symbol.iterator]() {
     yield* Object.values(this);
   },

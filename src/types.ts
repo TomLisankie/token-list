@@ -1,5 +1,3 @@
-import { SPL_TOKENS } from './';
-
 // Native SOL
 export interface NativeTokenInfo {
   readonly symbol: string;
@@ -33,7 +31,7 @@ export interface SplTokenInfo extends NativeTokenInfo {
 export type SplTokens = {
   [Symbol.iterator](): IterableIterator<SplTokenInfo>;
 } & {
-  [T in Extract<keyof typeof SPL_TOKENS, string>]: SplTokenInfo;
+  [T in string]: SplTokenInfo;
 };
 
 // LP tokens
