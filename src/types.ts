@@ -1,4 +1,4 @@
-import { SPL_TOKENS } from '.';
+import { SPL_TOKENS } from './';
 
 // Native SOL
 export interface NativeTokenInfo {
