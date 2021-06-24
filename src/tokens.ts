@@ -1,4 +1,4 @@
-import { LpTokenInfo, NativeTokenInfo, SplTokenInfo, SplTokens } from './types';
+import { LpTokenInfo, NativeTokenInfo, SplTokenInfo } from './types';
 
 export const SOL: NativeTokenInfo = {
   symbol: 'SOL',
@@ -14,9 +14,11 @@ export const WSOL: SplTokenInfo = {
   referrer: 'HTcarLHe7WRxBQCWvhVB8AP56pnEtJUV2jDGvcpY3xo5'
 };
 
-export const SPL_TOKENS: SplTokens = {
+export const SPL_TOKENS = {
   *[Symbol.iterator]() {
-    yield* Object.values(this);
+    for (const token of Object.values(this)) {
+      yield token;
+    }
   },
   WSOL: { ...WSOL },
   BTC: {
@@ -323,7 +325,7 @@ export const SPL_TOKENS: SplTokens = {
       medium: 'https://mercurialfi.medium.com/'
     }
   }
-};
+} as const;
 
 export const LP_TOKENS: LpTokenInfo[] = [];
 
