@@ -1,6 +1,6 @@
 {
   "name": "@raydium-io/token-list",
-  "version": "1.0.2-rc.1",
+  "version": "1.0.2-rc.2",
   "description": "Raydium token list",
   "main": "dist/index.js",
   "typings": "dist/index.d.ts",
