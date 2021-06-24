@@ -23,7 +23,8 @@
       "*": ["src/*", "node_modules/*"]
     },
     "esModuleInterop": true,
-    "resolveJsonModule": true
+    "resolveJsonModule": true,
+    "outDir": "dist"
   },
   "include": ["src", "test"]
 }
