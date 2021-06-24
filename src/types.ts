@@ -29,6 +29,7 @@ export interface SplTokenInfo extends NativeTokenInfo {
 
 // SPL tokens
 export interface SplTokens {
+  [Symbol.iterator](): IterableIterator<SplTokenInfo>;
   [key: string]: SplTokenInfo;
 }
 

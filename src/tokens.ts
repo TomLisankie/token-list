@@ -15,7 +15,7 @@ export const WSOL: SplTokenInfo = {
 };
 
 export const SPL_TOKENS: SplTokens = {
-  [Symbol.iterator]: function*() {
+  *[Symbol.iterator]() {
     yield* Object.values(this);
   },
   WSOL: { ...WSOL },
