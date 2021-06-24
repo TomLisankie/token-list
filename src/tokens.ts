@@ -323,3 +323,19 @@ export const SPL_TOKENS: SplTokens = {
 };
 
 export const LP_TOKENS: LpTokenInfo[] = [];
+
+export class TokenList {
+  constructor(private tokenList: (SplTokenInfo | LpTokenInfo)[]) {}
+
+  filterByMint = (mint: string) => {
+    return new TokenList(this.tokenList.filter((token) => token.mint === mint));
+  };
+
+  getList = () => {
+    return this.tokenList;
+  };
+
+  getLength = () => {
+    return this.tokenList.length;
+  };
+}
