@@ -30,7 +30,11 @@ export interface SplTokenInfo extends NativeTokenInfo {
 }
 
 // SPL tokens
-export type SplTokens = typeof SPL_TOKENS;
+export type SplTokens = {
+  [Symbol.iterator](): IterableIterator<SplTokenInfo>;
+} & {
+  [T in Extract<keyof typeof SPL_TOKENS, string>]: SplTokenInfo;
+};
 
 // LP tokens
 export interface LpTokenInfo extends NativeTokenInfo {

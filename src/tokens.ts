@@ -16,7 +16,7 @@ export const WSOL: SplTokenInfo = {
 
 export const SPL_TOKENS = {
   *[Symbol.iterator]() {
-    yield* Object.values(this) as SplTokenInfo[];
+    yield* Object.values(this);
   },
   WSOL: { ...WSOL },
   BTC: {
@@ -323,7 +323,7 @@ export const SPL_TOKENS = {
       medium: 'https://mercurialfi.medium.com/'
     }
   }
-} as const;
+};
 
 export const LP_TOKENS: LpTokenInfo[] = [];
 
