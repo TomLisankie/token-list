@@ -334,6 +334,24 @@ export class TokenList {
     return this.tokenList.filter((token) => token.mint === mint);
   };
 
+  /**
+   * @description Filter unique token by mint of token list, must and can only have one result
+   */
+  filterUniqueByMint = (mint: string, check = true) => {
+    const result = this.tokenList.filter((token) => token.mint === mint);
+
+    if (result.length !== 1) {
+      throw new Error(`filter one ${mint} return length ${result.length}`);
+    }
+
+    const token = result[0];
+    if (check && !('referrer' in token)) {
+      throw new Error(`filter one ${mint} not a SPL token`);
+    }
+
+    return token;
+  };
+
   getList = () => {
     return this.tokenList;
   };
