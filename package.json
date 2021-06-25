@@ -1,6 +1,6 @@
 {
   "name": "@raydium-io/token-list",
-  "version": "1.0.3",
+  "version": "1.0.3-rc.1",
   "description": "Raydium token list",
   "main": "dist/index.js",
   "typings": "dist/index.d.ts",
@@ -24,7 +24,7 @@
     ]
   },
   "scripts": {
-    "build": "tsc",
+    "build": "rm -rf dist && tsc",
     "json": "node scripts/build.js"
   },
   "peerDependencies": {},
