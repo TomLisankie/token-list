@@ -320,7 +320,7 @@ export const SPL_TOKENS: SplTokens = {
     socials: {
       twitter: 'https://twitter.com/MercurialFi',
       telegram: 'https://t.me/MercurialFi',
-      medium: 'https://mercurialfi.medium.com/'
+      medium: 'https://mercurialfi.medium.com'
     }
   }
 };
@@ -337,7 +337,7 @@ export class TokenList {
   /**
    * @description Filter unique token by mint of token list, must and can only have one result
    */
-  filterUniqueByMint = (mint: string, check = true) => {
+  filterUniqueByMint = (mint: string, notLpToken = true) => {
     const result = this.tokenList.filter((token) => token.mint === mint);
 
     if (result.length !== 1) {
@@ -345,7 +345,7 @@ export class TokenList {
     }
 
     const token = result[0];
-    if (check && !('referrer' in token)) {
+    if (notLpToken && !('referrer' in token)) {
       throw new Error(`filter one ${mint} not a SPL token`);
     }
 
