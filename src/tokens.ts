@@ -337,7 +337,7 @@ export class TokenList {
   /**
    * @description Filter unique token by mint of token list, must and can only have one result
    */
-  filterUniqueByMint = (mint: string, notLpToken = true) => {
+  filterUniqueByMint = (mint: string, notLpToken = false) => {
     const result = this.tokenList.filter((token) => token.mint === mint);
 
     if (result.length !== 1) {
