@@ -347,14 +347,12 @@ export class TokenList {
       throw new Error(`filter one ${mint} return length ${result.length}`);
     }
 
-    const token = result[0] as T extends true
-      ? SplTokenInfo
-      : LpTokenInfo | SplTokenInfo;
+    const token = result[0];
     if (notLpToken && !('referrer' in token)) {
       throw new Error(`filter one ${mint} not a SPL token`);
     }
 
-    return token;
+    return token as T extends true ? SplTokenInfo : LpTokenInfo | SplTokenInfo;
   };
 
   getList = () => {
