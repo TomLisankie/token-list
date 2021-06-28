@@ -337,9 +337,9 @@ export class TokenList {
   /**
    * @description Filter unique token by mint of token list, must and can only have one result
    */
-  filterUniqueByMint = <T extends boolean>(
+  filterUniqueByMint = <T extends 'all' | 'spl' | 'lp'>(
     mint: string,
-    notLpToken: T | false = false
+    tokenType: T | 'all' | 'spl' | 'lp' = 'all'
   ) => {
     const result = this.tokenList.filter((token) => token.mint === mint);
 
@@ -348,11 +348,17 @@ export class TokenList {
     }
 
     const token = result[0];
-    if (notLpToken && !('referrer' in token)) {
+    if (tokenType === 'spl' && !('referrer' in token)) {
       throw new Error(`filter one ${mint} not a SPL token`);
+    } else if (tokenType === 'lp' && 'referrer' in token) {
+      throw new Error(`filter one ${mint} not a LP token`);
     }
 
-    return token as T extends true ? SplTokenInfo : LpTokenInfo | SplTokenInfo;
+    return token as T extends 'all'
+      ? SplTokenInfo | LpTokenInfo
+      : T extends 'spl'
+      ? SplTokenInfo
+      : LpTokenInfo;
   };
 
   getList = () => {
