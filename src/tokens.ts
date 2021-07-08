@@ -3,6 +3,7 @@ import { LpTokenInfo, NativeTokenInfo, SplTokenInfo, SplTokens } from './types';
 export const SOL: NativeTokenInfo = {
   symbol: 'SOL',
   name: 'Solana',
+  mint: '11111111111111111111111111111111',
   decimals: 9
 };
 

@@ -2,6 +2,7 @@
 export interface NativeTokenInfo {
   readonly symbol: string;
   readonly name: string;
+  readonly mint: string;
 
   readonly decimals: number;
 }
